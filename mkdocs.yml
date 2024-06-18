@@ -1,0 +1,5 @@
+site_name: Project CGC
+nav:
+  - Home: index.md
+  - Contributing: contributing.md
+  - Style Guide: style-guide.md
