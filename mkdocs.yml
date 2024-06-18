@@ -1,4 +1,5 @@
 site_name: Project CGC
+url: https://goosiferio.github.io/docs-project-cgc/
 nav:
   - Home: index.md
   - Contributing: contributing.md
