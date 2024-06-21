@@ -1,7 +1,6 @@
 # Style Guide
 
-Unreal Engine has a particular convention for naming files, variables, and functions. This style guide is a reference for the naming conventions used in this project. For a more detailed guide, please refer to the [Unreal Engine Style Guide](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/DevelopmentSetup/CodingStandard/). To be sure, you're reading the spark notes version of the linked guide.
-
+Unreal Engine has a particular convention for naming files, variables, and functions. This style guide is a reference for the naming conventions used in this project. To be sure, you're reading the spark notes version of the official Unreal Engine Style Guide. Please skip to [#Conclusion](#conclusion) for links to sources.
 ## Copyright Notice
 
 Make sure all source files have the following notice at the top of the file:
@@ -96,6 +95,29 @@ All booleans should be named as though it were a question.
     bool bIsTrue; // A boolean that asks if something is true.
     bool bIsDead; // A boolean that asks if something is dead.
 ```
+
+## Assets
+
+Naming conventions for assets are a bit different from the naming conventions for code. Assets should be named in a way that makes them easy to find and understand. Unreal suggests the following convention for naming files:
+
+```bash
+[AssetTypePrefix]_[AssetName]_[Descriptor]_[OptionalVariantLetterOrNumber]
+```
+
+- **AssetTypePrefix**: A prefix that indicates the type of asset. For example, "SM" for a static mesh, "T" for a texture, "M" for a material, and so on.
+- **AssetName**: A descriptive name for the asset. For example, "Wall", "Floor", "Player", and so on.
+- **Descriptor**: A descriptor that describes the asset. For example, whether "a texture is a normal map or an opacity map".
+- **OptionalVariantLetterOrNumber**: An optional letter or number that distinguishes the asset from other assets of the same type.
+
+**Examples**
+
+```bash
+SM_Wall_01
+T_Wall_Normal
+M_Wall_Brick
+```
+
+For a full list of recommended prefixes, please refer to the [Recommended Asset Naming Conventions](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/AssetNaming/).
 
 ## Conclusion
 

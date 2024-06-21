@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Contributing - Project CGC</title>
+        <title>Reference Guides - Project CGC</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -33,14 +33,14 @@
                             <li class="navitem">
                                 <a href=".." class="nav-link">Home</a>
                             </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Contributing</a>
+                            <li class="navitem">
+                                <a href="../contributing/" class="nav-link">Contributing</a>
                             </li>
                             <li class="navitem">
                                 <a href="../style-guide/" class="nav-link">Style Guide</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../reference/" class="nav-link">Reference Guides</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Reference Guides</a>
                             </li>
                         </ul>
 
@@ -51,12 +51,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
+                                <a rel="prev" href="../style-guide/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../style-guide/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -78,9 +78,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#contributing" class="nav-link">Contributing</a>
+            <li class="nav-item" data-level="1"><a href="#reference-guides" class="nav-link">Reference Guides</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#tools" class="nav-link">Tools</a>
+            <li class="nav-item" data-level="2"><a href="#list-of-important-unreal-engine-objects" class="nav-link">List of Important Unreal Engine Objects</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -91,27 +91,45 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="contributing">Contributing</h1>
-<p>To get started with contributing to this project, please make sure you have access to the following tools:</p>
-<ul>
-<li><a href="https://github.com/ElsFouche/Hyponic-Biotic-Outbreak">Project CGC Game Repository</a></li>
-<li>Miro Board</li>
-<li>Discord</li>
-</ul>
-<p>If you see a tool above you don't have access to, please contact the project manager or the team lead for the discipline you're interested in contributing to.</p>
-<h2 id="tools">Tools</h2>
-<p><strong>Required</strong></p>
-<ul>
-<li><a href="https://www.unrealengine.com/en-US/">Unreal Engine 5.3.2</a></li>
-<li><a href="https://github.com/">Github</a><ul>
-<li>Feel free to use the Github Desktop app if you're not comfortable with the command line.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Optional</strong></p>
-<ul>
-<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-</ul></div>
+<h1 id="reference-guides">Reference Guides</h1>
+<p>This section intends to include information about miscellaneous topics that might help developers understand the Unreal Engine better. </p>
+<h2 id="list-of-important-unreal-engine-objects">List of Important Unreal Engine Objects</h2>
+<p>Unreal has several default objects that it must create in order to function, such as the game instance object. These objects have built-in functionality and it is often advantageous to create your own. Defaults can be modified in the edit -&gt; project settings -&gt; Project:Maps&amp;Modes menu. Defaults can also be modified in the world settings menu (docked in the editor by default).</p>
+<p>Below is a table of the most important objects in Unreal Engine:</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Game Instance</td>
+<td>There is only one game instance per game. It's automatically created as the game is being initialized and isn't destroyed until the game ends. It is ideal for handling functionality that needs to be available at all times, such as save &amp; load functionality.</td>
+</tr>
+<tr>
+<td>Game Mode</td>
+<td>The game mode handles various rules about the game. Uncertain: It seems only one game mode object can be active per map. In a networked game the game mode is non-replicable (e.g. server side only).</td>
+</tr>
+<tr>
+<td>Game State</td>
+<td>The game state generally handles data about the game. In a networked game this generally means holding things like team scores. Game states are replicated from the server to all clients.</td>
+</tr>
+<tr>
+<td>Player State</td>
+<td>The player state object generally handles data about the player such as player name and score. Player states are replicated from the server to all clients. This allows for things like displaying every player's score in an online FPS game.</td>
+</tr>
+<tr>
+<td>Player Controller</td>
+<td>The player controller handles setup of the controls for the player. This is generally where you would place functionality for changing controls based on context e.g. quicktime events, controlling a car vs. a character, etc.</td>
+</tr>
+<tr>
+<td>Player Pawn</td>
+<td>The player pawn is 'possessed' by the player who is, as the name implies, a disembodied concept unless possessing a pawn. Pawns can be characters with a visually displayed mesh, a car, plane, whatever. Pawns generally have a camera component and a mesh. Individual pawns handle the implementation of the control scheme as defined in the player controller. This way you can allow a player to swap from one pawn to another and have many or all of the same controls shared but with differing implementations as needed.</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
